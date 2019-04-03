@@ -1,12 +1,9 @@
-helper = new com.freshbooks.jenkinshelper.pipelinehelper()
-
 pipeline {
   agent {
     label 'master'
   }
   options {
     timeout(time: 3, unit: 'MINUTES')
-    preserveStashes()
   }
   stages {
     stage('FirstStage') {
@@ -19,11 +16,6 @@ pipeline {
       }
       steps {
         script {
-          helper.withGithubCredentials {
-            sh 'git fetch --all --tags'
-            sh 'git checkout -B master'
-            println('Test prompt this')
-          }
           sh 'ls -al'
           sh 'echo "prompt this"'
         }
@@ -35,23 +27,9 @@ pipeline {
           agent {
             label 'master'
           }
-          stages {
-            stage('Hello') {
-              steps {
-                script {
-                  sh 'ls -al'
-                  sh 'echo "prompt Hello"'
-                }
-              }
-            }
-            stage('World') {
-              steps {
-                script {
-                  sh 'ls -al'
-                  sh 'echo "prompt World"'
-                }
-              }
-            }
+          script {
+            sh 'ls -al'
+            sh 'echo "prompt Hello"'
           }
         }
         stage('Parallel') {
