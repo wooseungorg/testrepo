@@ -2,7 +2,7 @@
 
 https://core-git.builds.2ndsiteinc.com/job/wooseungorg/job/testrepo/job/master/badge/icon
 
-hi
+hAi
 ho
 test
 another test
