@@ -50,7 +50,7 @@ pipeline {
       }
       steps {
         script {
-          sh "echo 'It is the last job.'"
+          sh "echo 'It is the last JOB!.'"
         }
       }
     }
