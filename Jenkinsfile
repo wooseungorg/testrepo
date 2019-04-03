@@ -27,9 +27,11 @@ pipeline {
           agent {
             label 'master'
           }
-          script {
-            sh 'ls -al'
-            sh 'echo "prompt Hello"'
+          steps {
+            script {
+              sh 'ls -al'
+              sh 'echo "prompt Hello"'
+            }
           }
         }
         stage('Parallel') {
